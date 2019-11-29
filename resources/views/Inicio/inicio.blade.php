@@ -19,7 +19,7 @@
                         <div class="col-lg-6 col-md-6 mb-6 ">
                             <br>
                             <div class="d-flex justify-content-center">
-                                <img class="img-fluid z-depth-1 rounded-circle" style=" width: 150px; height:150px;" src="{{Auth::user()->imagen}}" alt="Card image cap">
+                                <img class="img-thumbnail z-depth-2 rounded-circle" style=" width: 150px; height:150px;" src="{{Auth::user()->imagen}}" alt="Card image cap">
                             </div>
                             <br>
                         </div>
