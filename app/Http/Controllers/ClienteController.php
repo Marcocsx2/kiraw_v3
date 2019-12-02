@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Proveedores;
-use App\Publicaciones;
+use App\Http\Controllers\Auth\VerificationController;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+use Symfony\Component\CssSelector\Parser\Handler\WhitespaceHandler;
 
-class PublicacionesController extends Controller
+class ClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +19,8 @@ class PublicacionesController extends Controller
     public function index()
     {
         //
-        $data = Publicaciones::select('proveedores.pro_imagen','proveedores.pro_nombre',
-        'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
-                ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
-                ->get();
-
-        $pro_imagenes = Proveedores::all();
-
-        return view('Inicio.inicio')->with( 'pro_imagenes', $pro_imagenes)
-                                    ->with('data', $data);
+        $clientes = User::all();
+        return view('Perfiles.index')->with('clientes', $clientes);
     }
 
     /**
@@ -68,8 +64,6 @@ class PublicacionesController extends Controller
     public function edit($id)
     {
         //
-        $publicacion = Publicaciones::find($id);
-        return view('Publicaciones.edit')-> with('publicacion',$publicacion);
     }
 
     /**

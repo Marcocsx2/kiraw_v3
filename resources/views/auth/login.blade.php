@@ -24,6 +24,21 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="proveedor" role="tabpanel" aria-labelledby="home-tab">
                             <br>
+
+                            <!-- Formulario de Login Cliente -->
+                            @if (! $errors->isEmpty())
+                                
+                            <div class="alert alert-danger">
+                                <p><strong>Oops¡</strong> Soluciona los siguientes Errores:  </p>
+                                <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>    
+                                @endforeach
+                                </ul>
+                            </div>
+
+                            @endif
+
                             <form method="POST" action="{{ url('/verificar') }}">
                                 @csrf
 
@@ -31,13 +46,7 @@
                                     <label for="pro_correo" class="col-md-4 col-form-label text-md-right">{{ __('Correo de Proveedor :') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="pro_correo" type="email" class="form-control @error('pro_correo') is-invalid @enderror" name="pro_correo" value="{{ old('pro_correo') }}"  autocomplete="pro_correo" required autofocus>
-
-                                        @error('pro_correo')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <input id="pro_correo" type="email" class="form-control @error('pro_correo') is-invalid @enderror" name="pro_correo" value="{{ old('pro_correo') }}"  autocomplete="pro_correo" autofocus>
                                     </div>
                                 </div>
 
@@ -45,13 +54,7 @@
                                     <label for="pro_contraseña" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña :') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="passwopro_contraseñard" type="password" class="form-control @error('pro_contraseña') is-invalid @enderror" name="pro_contraseña" required autocomplete="pro_contraseña">
-
-                                        @error('pro_contraseña')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <input id="passwopro_contraseñard" type="password" class="form-control @error('pro_contraseña') is-invalid @enderror" name="pro_contraseña" autocomplete="pro_contraseña">
                                     </div>
                                 </div>
 
@@ -81,9 +84,17 @@
                                     </div>
                                 </div>
                             </form>
+
+                        <!-- FIN Formulario de Login Cliente -->
+
                         </div>
+
+                        
                         <div class="tab-pane fade" id="cliente" role="tabpanel" aria-labelledby="profile-tab">
                             <br>
+
+                            <!-- Formulario de Login Proveedor -->
+
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
@@ -141,6 +152,9 @@
                                     </div>
                                 </div>
                             </form>
+
+                            <!-- FIN del Formulario de Login Proveedor -->
+
                         </div>
                     </div>
                 </div>

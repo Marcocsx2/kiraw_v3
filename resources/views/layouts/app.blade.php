@@ -16,9 +16,12 @@
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'> @show @yield('mis_estilos')
 
     </head>
+    <style>
+        
+    </style>
 </head>
 
-<body>
+<body class="grey lighten-4" >
     <div id="app">
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark green accent-4 scrolling-navbar fixed-top">
             <div class="container-fluid">
@@ -28,20 +31,19 @@
                 </button>
                 <div class="collapse navbar-collapse text-right" id="navbarSupportedContent-555">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
 
-                            <a class="nav-link" href="#">Inicio
+                            <a class="nav-link" href="{{ url('publicaciones') }}">Inicio
                                 <i class="fas fa-home"></i>
-                                <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Compañias
+                            <a class="nav-link" href="{{ url('compañias') }}">Compañias
                                 <i class="fas fa-building"></i>
                             </a>
                         </li>
                         <li class="nav-item nav-flex-icons">
-                            <a class="nav-link" href="#">Perfiles
+                            <a class="nav-link" href="{{ url('perfiles') }}">Perfiles
                                 <i class="fas fa-user"></i>
                             </a>
                         </li>
@@ -65,6 +67,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @auth
+                                    
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar Sesión') }}
@@ -73,6 +77,8 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                                @endauth 
+                                    
                             </div>
                         </li>
                         @endauth
@@ -137,7 +143,6 @@
         </footer>
         <!-- Footer -->
     </div>
-
     <script src="{{ URL::asset('assets/js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/mdb.min.js') }}"></script>

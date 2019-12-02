@@ -3,28 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Proveedores;
-use App\Publicaciones;
 use Illuminate\Http\Request;
 
-class PublicacionesController extends Controller
+class CompañiasController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $data = Publicaciones::select('proveedores.pro_imagen','proveedores.pro_nombre',
-        'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
-                ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
-                ->get();
+        $name =$request->get('name');
 
-        $pro_imagenes = Proveedores::all();
+        $compañias = Proveedores::all();
 
-        return view('Inicio.inicio')->with( 'pro_imagenes', $pro_imagenes)
-                                    ->with('data', $data);
+        return view('Compañia.index')->with( 'compañias', $compañias);
     }
 
     /**
@@ -68,8 +63,6 @@ class PublicacionesController extends Controller
     public function edit($id)
     {
         //
-        $publicacion = Publicaciones::find($id);
-        return view('Publicaciones.edit')-> with('publicacion',$publicacion);
     }
 
     /**

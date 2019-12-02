@@ -74,37 +74,38 @@ class ProveedoresController extends Controller
 
     }
 
-    public function LoginProveedor(Request $request)
+    public function LoginProveedor()
     {
 
-        $credenciales = Validator::make($request->all(),[
-            'pro_correo'=> ['required'],
-            'pro_contraseña'=> ['min:6'],
+
+        $this->validate(request(), [
+            'pro_email' => ['required'],
+            'pro_contraseña' => ['required'],
         ]);
 
-        $proveedores = new Proveedores();
+        return view('Inicio_pro.inicio_pro');
 
-        $proveedores -> get('pro_correo');
-        $proveedores -> get('pro_contraseña');
 
-        if($credenciales->fails()){
+        // $credenciales = Validator::make($request->all(),[
+        //     'pro_correo'=> ['required'],
+        //     'pro_contraseña'=> ['min:6'],
+        // ]);
 
-            return redirect('/login')
-               ->withInput()
-               ->withErrors($credenciales);
-        }
-        else
-        {
-            if (Auth::guard('proveedor')->attempt([$proveedores]))
-            {
-                return View('Inicio_pro.inicio_pro');
-            }
-            else
-            {
-                return back()
-                    ->withInput()
-                    ->withErrors($credenciales);
-            }
-        }
+        // $proveedores = new Proveedores();
+
+        // $proveedores -> get('pro_correo');
+        // $proveedores -> get('pro_contraseña');
+
+        // if($credenciales->fails()){
+
+        //     return redirect('/login')
+        //        ->withInput()
+        //        ->withErrors($credenciales);
+        // }
+        // else
+        // {
+        //     return View('Inicio_pro.inicio_pro');
+        // }
     }
+
 }

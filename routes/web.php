@@ -16,11 +16,9 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Resources\Json\Resource;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+
+Route::group(['middleware'=>'auth'], function(){
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -29,3 +27,14 @@ Route::post('/registrar', 'ProveedoresController@RegistrarProveedor');
 Route::post('/verificar', 'ProveedoresController@LoginProveedor');
 
 Route::resource('publicaciones', 'PublicacionesController');
+
+Route::resource('compañias', 'CompañiasController');
+
+Route::resource('perfiles', 'ClienteController');
+
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+

@@ -82,7 +82,7 @@ class ProveedoresSeeder extends Seeder
         //Souvenirs
 
         DB::table('proveedores')->insert([
-            'pro_imagen'=>'https://www.facebook.com/119854421373732/photos/1381828828509612/',
+            'pro_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQvJlrcFKy7iyNV8ASevMxJu1JtBYTacAW3JHyC8p1hXD4DVgqO',
             'pro_nombre'=> 'LA FESTA',
             'pro_descripcion'=>'LLevamos los acontecimientos diarios a que sean un evento especial',
             'pro_fundacion' => '2016-05-24',
