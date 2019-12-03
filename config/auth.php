@@ -49,7 +49,13 @@ return [
 
         'proveedor' => [
             'driver' => 'session',
-            'provider' => 'provedores',
+            'provider' => 'proveedores',
+        ],
+
+        'api-proveedor' => [
+            'driver' => 'token',
+            'provider' => 'proveedores',
+            'hash' => false,
         ],
 
     ],
@@ -77,7 +83,7 @@ return [
             'model' => App\User::class,
         ],
 
-        'provedores' => [
+        'proveedores' => [
             'driver' => 'eloquent',
             'model' => App\Proveedores::class,
         ],
@@ -108,6 +114,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'proveedores' => [
+            'provider' => 'proveedores',
             'table' => 'password_resets',
             'expire' => 60,
         ],

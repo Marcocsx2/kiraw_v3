@@ -16,11 +16,21 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
-        }
+    {   
 
+        switch ($guard){
+            case 'proveedor':
+                if (Auth::guard($guard)->check()){
+                    return redirect()->route('proveedor.home');
+                }
+                break;
+
+            default:
+                if (Auth::guard($guard)->check()) {
+                return redirect('publicaciones');
+                }
+            break;
+        }
         return $next($request);
     }
 }

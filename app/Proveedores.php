@@ -8,13 +8,7 @@ class Proveedores extends Authenticatable
 {
     //
 
-
-    public function scopeName($query, $name)
-    {
-        if($name)
-            return $query->where('name', 'LIKE', "%$name%");
-    }
-
+    protected $guard = 'proveedor';
 
     /**
      * The attributes that are mass assignable.
@@ -33,4 +27,10 @@ class Proveedores extends Authenticatable
     protected $hidden = [
         'pro_contraseña', 'remember_token',
     ];
+
+    public function scopeName($query, $name)
+    {
+        if($name)
+            return $query->where('name', 'LIKE', "%$name%");
+    }
 }

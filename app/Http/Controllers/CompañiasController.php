@@ -15,9 +15,7 @@ class CompañiasController extends Controller
     public function index(Request $request)
     {
         //
-        $name =$request->get('name');
-
-        $compañias = Proveedores::all();
+        $compañias = Proveedores::paginate(2);
 
         return view('Compañia.index')->with( 'compañias', $compañias);
     }
