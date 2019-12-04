@@ -1,13 +1,58 @@
 @extends('layouts.app')
 @section('content')
-<br>
-<br>
-
+<div class="row">
+    <div class="col-lg-12 col-md-12 mb-3">
+        <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
+            <!--Indicators-->
+            <!-- <ol class="carousel-indicators">
+                <li data-target="#carousel-example-2" data-slide-to="$" class="active"></li>
+                @foreach ($data as $dat)
+                <li data-target="#carousel-example-2" data-slide-to="{{$dat->id}}"></li>
+                @endforeach
+            </ol> -->
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="view">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">K'iraw</h3>
+                        <p>Tu plataforma favorita</p>
+                    </div>
+                </div>
+                @foreach ($data as $dat)
+                <div class="carousel-item">
+                    <div class="view">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$dat->publi_imagen}}" alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">{{$dat->publi_titulo}}</h3>
+                        <p>{{$dat->publi_descripcion}}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
+        </div>
+    </div>
+</div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12 col-md-12 mb-3">
 
-        </div>
     </div>
 
     <div class="row">
@@ -53,54 +98,9 @@
         </div>
 
         <div class="col-lg-6 col-md-12 mb-6">
-            
+
             <!--Carousel Wrapper-->
-            <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
-                <!--Indicators-->
-                <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-2" data-slide-to="$" class="active"></li>
-                    @foreach ($pro_imagenes as $pro_id)
-                        <li data-target="#carousel-example-2" data-slide-to="{{$pro_id->id}}"></li> 
-                    @endforeach
-                </ol>
-                <!--/.Indicators-->
-                <!--Slides-->
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="view">
-                            <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="First slide">
-                            <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                            <h3 class="h3-responsive">K'iraw</h3>
-                            <p>Tu plataforma favorita</p>
-                        </div>
-                    </div>
-                    @foreach ($pro_imagenes as $pro_imagen)
-                    <div class="carousel-item">
-                        <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$pro_imagen->pro_imagen}}" alt="First slide">
-                            <div class="mask rgba-black-light"></div>
-                        </div>
-                        <div class="carousel-caption">
-                        <h3 class="h3-responsive">{{$pro_imagen->pro_nombre}}</h3>
-                            <p>{{$pro_imagen->pro_descripcion}}</p>
-                        </div>
-                    </div>
-                @endforeach
-                </div>
-                <!--/.Slides-->
-                <!--Controls-->
-                <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <!--/.Controls-->
-            </div>
+
             <!--/.Carousel Wrapper-->
             <br>
             @foreach($data as $datas)
@@ -157,7 +157,7 @@
                         <br>
 
                         <div class="row">
-                            
+
                             <div class="col-12 d-flex justify-content-center">
                                 <button type="button" class="btn btn-orange btn-block"><i class="fas fa-shopping-cart"></i> </button>
                             </div>

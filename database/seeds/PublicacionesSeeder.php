@@ -16,7 +16,7 @@ class PublicacionesSeeder extends Seeder
         DB::table('publicaciones')->insert([
             'publi_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTAevl0ExFq0mn7n0jcDQBmMgSSCtKB25F5wTBYezi1h71_lUs3',
             'publi_titulo'=> 'Cafe Peruano',
-            'publi_descripcion'=>'El cafe con el Mejor sabor del todo puto mundo',
+            'publi_descripcion'=>'El cafe con el Mejor sabor del Peru para el mundo',
             'proveedores_id' => '1',
         ]);
 
@@ -130,33 +130,33 @@ class PublicacionesSeeder extends Seeder
              'proveedores_id' => '7',
          ]);
 
-         DB::table('publicaciones')->insert([
-             'publi_imagen'=>'',
-             'publi_titulo'=> '',
-             'publi_descripcion'=>'',
-             'proveedores_id' => '7',
-         ]);
+        //  DB::table('publicaciones')->insert([
+        //      'publi_imagen'=>'',
+        //      'publi_titulo'=> '',
+        //      'publi_descripcion'=>'',
+        //      'proveedores_id' => '7',
+        //  ]);
 
-         DB::table('publicaciones')->insert([
-             'publi_imagen'=>'',
-             'publi_titulo'=> '',
-             'publi_descripcion'=>'',
-             'proveedores_id' => '7',
-         ]);
+        //  DB::table('publicaciones')->insert([
+        //      'publi_imagen'=>'',
+        //      'publi_titulo'=> '',
+        //      'publi_descripcion'=>'',
+        //      'proveedores_id' => '7',
+        //  ]);
 
-         DB::table('publicaciones')->insert([
-             'publi_imagen'=>'',
-             'publi_titulo'=> '',
-             'publi_descripcion'=>'',
-             'proveedores_id' => '7',
-         ]);
+        //  DB::table('publicaciones')->insert([
+        //      'publi_imagen'=>'',
+        //      'publi_titulo'=> '',
+        //      'publi_descripcion'=>'',
+        //      'proveedores_id' => '7',
+        //  ]);
 
-         DB::table('publicaciones')->insert([
-             'publi_imagen'=>'',
-             'publi_titulo'=> '',
-             'publi_descripcion'=>'',
-             'proveedores_id' => '7',
-         ]);
+        //  DB::table('publicaciones')->insert([
+        //      'publi_imagen'=>'',
+        //      'publi_titulo'=> '',
+        //      'publi_descripcion'=>'',
+        //      'proveedores_id' => '7',
+        //  ]);
         // // publicaciones con Medicinales
 
          DB::table('publicaciones')->insert([

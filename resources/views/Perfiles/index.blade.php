@@ -1,14 +1,59 @@
 @extends('layouts.app')
 @section('content')
 
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="row">
+    <div class="col-lg-12 col-md-12 mb-3">
+        <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
+            <!--Indicators-->
+            <!-- <ol class="carousel-indicators">
+                <li data-target="#carousel-example-2" data-slide-to="$" class="active"></li>
+                @foreach ($clientes as $cliente)
+                <li data-target="#carousel-example-2" data-slide-to="{{$cliente->id}}"></li>
+                @endforeach
+            </ol> -->
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="view">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">K'iraw</h3>
+                        <p>Tu plataforma favorita</p>
+                    </div>
+                </div>
+                @foreach ($clientes as $clinte)
+                <div class="carousel-item">
+                    <div class="view">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$cliente->imagen}}" alt="First slide">
+                        <div class="mask rgba-black-light"></div>
+                    </div>
+                    <div class="carousel-caption">
+                        <h3 class="h3-responsive">{{$cliente->name}}</h3>
+                        <p>{{$cliente->profesion}}</p>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <!--/.Slides-->
+            <!--Controls-->
+            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            <!--/.Controls-->
+        </div>
+    </div>
+</div>
 <div class="container">
 
-  <div class="row ">
+  <div class="row my-4">
 
     <!-- Section heading -->
     <div class="col-lg-12 col-md-8 mb-6">
