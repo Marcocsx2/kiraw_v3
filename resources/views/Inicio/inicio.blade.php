@@ -159,7 +159,7 @@
                         <div class="row">
 
                             <div class="col-12 d-flex justify-content-center">
-                                <button type="button" class="btn btn-orange btn-block"><i class="fas fa-shopping-cart"></i> </button>
+                                <button type="button" class="btn btn-orange btn-block">Visualizar Productos de este Proveedor</button>
                             </div>
                         </div>
 

@@ -78,7 +78,30 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
 
-        return $request;
+        if($request->hasFile('imagen')){
+            $file_imagen = $request->file('imagen');
+            $name_imagen = time().$file_imagen->getClientOriginalName();
+            $file_imagen->move(public_path().'/Imagen_cliente/', $name_imagen);
+        }
+
+        if($request->hasFile('fondo')){
+            $file_logo = $request->file('fondo');
+            $name_logo = time().$file_logo->getClientOriginalName();
+            $file_logo->move(public_path().'/Logo_cliente/', $name_logo);
+        }
+
+        $cliente = new User();
+        $cliente->name = $request->input('name');
+        $cliente->fondo = $request->$name_logo;
+        $cliente->imagen = $request->$name_imagen;
+        $cliente->descripcion = $request->input('descripcion');
+        $cliente->profesion = $request->input('profesion');
+        $cliente->email = $request->input('email');
+        $cliente->password = $request->input('password');
+        $cliente->save();
+
+        return 'Saved';
+
     }
     
 }

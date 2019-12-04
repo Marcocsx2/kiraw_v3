@@ -27,7 +27,7 @@ class ProveedoresSeeder extends Seeder
             'pro_nombre'=> 'El olivar',
             'pro_descripcion'=>'Bueno por naturaleza',
             'pro_fundacion' => '2000-07-05',
-            'pro_telefono'=>'9885489547',
+            'pro_telefono'=>'988548954',
             'pro_trabajadores'=>'1457',
             'pro_correo'=>'el_olivar@gmail.com',
             'pro_contraseña' => bcrypt('123456789'), 
