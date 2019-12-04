@@ -11,11 +11,8 @@
 |
 */
 
-use App\Http\Controllers\Auth\ProveedoresController;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Http\Resources\Json\Resource;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,8 +29,9 @@ Route::resource('publicaciones', 'PublicacionesController');
 Route::resource('compañias', 'CompañiasController');
 
 Route::resource('perfiles', 'ClienteController');
-
 });
+
+
 
 //Route::post('verificar', 'ProveedoresController@LoginProveedor');
 
@@ -42,8 +40,9 @@ Route::group(['prefix'=>'proveedor'], function(){
     Route::get('/register', 'AuthProveedor\RegisterController@showLoginForm')->name('proveedor.register');
     Route::post('/register','AuthProveedor\RegisterController@create')->name('proveedor.register.submit');
     Route::post('/login', 'AuthProveedor\LoginController@login')->name('proveedor.login.submit');
-    Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
 });
+
+Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
 
 
 

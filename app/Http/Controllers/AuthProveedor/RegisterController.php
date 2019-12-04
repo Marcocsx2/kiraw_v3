@@ -48,7 +48,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(Request $request)
+    protected function validator(array $validacion)
     {
         // return Validator::make($request->all(), [
         //     'pro_nombre'=>'required',
@@ -59,18 +59,8 @@ class RegisterController extends Controller
         //     'pro_correo'=>'required|unique:proveedores',
         //     'pro_contraseña'=>'required|min:6'
         // ]);
-    }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(Request $request)
-    {   
-
-        $validacion = Validator::make($request->all(),[
+        return Validator::make($validacion, [
             'pro_nombre'=>'required',
             'pro_telefono'=>'required|max:9|min:9',
             'pro_trabajadores'=>'required',
@@ -79,24 +69,40 @@ class RegisterController extends Controller
             'pro_correo'=>'required|unique:proveedores',
             'pro_contraseña'=>'required|min:6'
         ]);
+    }
 
-        if($validacion->fails()){
-            return redirect()->back()
-                ->withInput()
-                ->withErrors($validacion);
-        }
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Proveedores
+     */
+    protected function create(Request $request)
+    {   
+        $validacion = $request->all();
+        if($validacion){
+            Proveedores::create([
+                'pro_nombre' => $validacion['pro_nombre'],
+                'pro_telefono' => $validacion['pro_telefono'],
+                'pro_trabajadores' => $validacion['pro_trabajadores'],
+                'pro_descripcion' => $validacion['pro_descripcion'],
+                'pro_fundacion' => $validacion['pro_fundacion'],
+                'pro_correo' => $validacion['pro_correo'],
+                'pro_contraseña' => Hash::make($validacion['pro_contraseña']),
+        ]);
+    }
 
-        $user = new Proveedores();
-        $user -> pro_nombre = $request -> pro_nombre;
-        $user -> pro_telefono = $request -> pro_telefono;
-        $user -> pro_trabajadores = $request -> pro_trabajadores;
-        $user -> pro_descripcion = $request -> pro_descripcion;
-        $user -> pro_fundacion = $request -> pro_fundacion;
-        $user -> pro_correo =  $request -> pro_correo ;
-        $user -> pro_contraseña = bcrypt( $request -> pro_contraseña );
-        $user -> save();
+        // $user = new Proveedores();
+        // $user -> pro_nombre = $request -> pro_nombre;
+        // $user -> pro_telefono = $request -> pro_telefono;
+        // $user -> pro_trabajadores = $request -> pro_trabajadores;
+        // $user -> pro_descripcion = $request -> pro_descripcion;
+        // $user -> pro_fundacion = $request -> pro_fundacion;
+        // $user -> pro_correo =  $request -> pro_correo ;
+        // $user -> pro_contraseña = bcrypt( $request -> pro_contraseña );
+        // $user -> save();
 
-        return  route('proveedor.home');
+        // return  route('proveedor.home');
     
     }
     public function showLoginForm()

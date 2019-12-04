@@ -20,44 +20,74 @@
     <!--Navbar -->
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark green accent-4 scrolling-navbar fixed-top">
         <div class="container-fluid">
+            
             <img src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" class="rounded-circle z-depth-0" alt="Kiraw" height="50">
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse text-right" id="navbarSupportedContent-555">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
 
-                        <a class="nav-link" href="http://localhost/kiraw_v2/public/Inicio_pro">Inicio
+            <div class="collapse navbar-collapse text-right" id="navbarSupportedContent-555">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Inicio
                             <i class="fas fa-home"></i>
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="http://localhost/kiraw_v2/public/Compa%C3%B1ia_pro">Compañias
+                        <a class="nav-link" href="">Compañias
                             <i class="fas fa-building"></i>
                         </a>
                     </li>
+
                     <li class="nav-item nav-flex-icons">
-                        <a class="nav-link" href="http://localhost/kiraw_v2/public/Productos_pro">Mis Productos
+                        <a class="nav-link" href="">Mis Productos
                             <i class="fas fa-warehouse"></i>
                         </a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="">Notificaciones
                             <i class="fas fa-bell"></i>
                         </a>
+
                     </li>
                 </ul>
+
                 <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item avatar">
+
+                    @auth
+                    <li>
                         <a class="nav-link p-0" href="#">
-                            <img src="{{ URL::asset('assets/Imagenes/Productos/limacafe.png') }}" class="rounded-circle z-depth-0" alt="avatar image" height="55">
+                            <img src="{{ Auth::user()->imagen }}" class="rounded-circle z-depth-0" style=" width: 50px; height:50px;" alt="avatar image" height="55">
                         </a>
-                    <li class="nav-item ">
-                        <a href="http://localhost/kiraw_v2/public/Login" class="nav-link">Cerrar sesión</a>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @auth
+
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Cerrar Sesión') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                            @endauth
+
+                        </div>
                     </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -67,6 +97,7 @@
     <br>
     <br>
     <br>
+
 
     @yield('content')
     <!-- Footer -->

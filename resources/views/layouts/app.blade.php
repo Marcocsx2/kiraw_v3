@@ -17,42 +17,61 @@
 
     </head>
     <style>
-        
+        body {
+            background-image: url('http://demo.thedevelovers.com/dashboard/queenadmin-1.2/assets/img/gray_jean.png?1353438653');
+            background-repeat: repeat;
+            min-height: 100%;
+        }
+
+        .top-nav-collapse{
+            background-color: #00C851;
+            text-decoration-color: white !important;
+        }
     </style>
 </head>
 
-<body class="grey lighten-4" >
+<body class="grey lighten-4">
     <div id="app">
-        <nav class="mb-1 navbar navbar-expand-lg navbar-dark green accent-4 scrolling-navbar fixed-top">
+
+        <nav class="mb-1 z-p navbar navbar-dark navbar-expand-lg accent-4 scrolling-navbar fixed-top">
+
             <div class="container-fluid">
                 <img src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" class="rounded-circle z-depth-0" alt="Kiraw" height="50">
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse text-right" id="navbarSupportedContent-555">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
 
+                <div class="collapse navbar-collapse text-right" id="navbarSupportedContent-555">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('publicaciones') }}">Inicio
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('compañias') }}">Compañias
                                 <i class="fas fa-building"></i>
                             </a>
                         </li>
+
                         <li class="nav-item nav-flex-icons">
                             <a class="nav-link" href="{{ url('perfiles') }}">Perfiles
                                 <i class="fas fa-user"></i>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">Mi carrito
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                         </li>
+
                     </ul>
+
                     <ul class="navbar-nav ml-auto nav-flex-icons">
 
                         @auth
@@ -61,14 +80,16 @@
                                 <img src="{{ Auth::user()->imagen }}" class="rounded-circle z-depth-0" style=" width: 50px; height:50px;" alt="avatar image" height="55">
                             </a>
                         </li>
+
                         <li class="nav-item dropdown">
+
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 @auth
-                                    
+
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Cerrar Sesión') }}
@@ -77,8 +98,8 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
-                                @endauth 
-                                    
+                                @endauth
+
                             </div>
                         </li>
                         @endauth
@@ -87,16 +108,12 @@
             </div>
         </nav>
         <!--/.Navbar -->
-        <br>
-        <br>
-        <br>
-        <br>
 
         <main class="py-4">
             @yield('content')
         </main>
 
-        <footer class="page-footer font-small rgba-green-light">
+        <footer class="page-footer font-small rgba-green-light ">
 
             <!-- Footer Elements -->
             <div class="container">

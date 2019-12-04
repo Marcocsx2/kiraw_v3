@@ -18,20 +18,6 @@
                         <br>
                         <form method="POST" action="{{ route('proveedor.register.submit') }}">
                                 @csrf
-                                
-                                <div class="form-group row">
-                                    <label for="pro_imagen" class="col-md-4 col-form-label text-md-right">{{ __('Imagen de la empresa:') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="pro_imagen" type="file" class="form-control @error('pro_imagen') is-invalid @enderror" name="pro_imagen" value="{{ old('pro_imagen') }}" required autocomplete="pro_imagen" autofocus>
-
-                                        @error('pro_imagen')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
 
                                 <div class="form-group row">
                                     <label for="pro_nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre de la empresa:') }}</label>
@@ -79,7 +65,7 @@
                                     <label for="pro_descripcion" class="col-md-4 col-form-label text-md-right">{{ __('Descripción de la empresa :') }}</label>
 
                                     <div class="col-md-6">
-                                        <textarea  id="pro_descripcion" type="textarea" class="form-control @error('pro_descripcion') is-invalid @enderror" name="pro_descripcion" value="{{ old('pro_descripcion') }}" required autocomplete="on" autofocus></textarea>
+                                        <textarea  id="pro_descripcion" type="textarea" maxlength="255" class="form-control @error('pro_descripcion') is-invalid @enderror" name="pro_descripcion" value="{{ old('pro_descripcion') }}" required autocomplete="on" autofocus></textarea>
 
                                         @error('pro_descripcion')
                                         <span class="invalid-feedback" role="alert">

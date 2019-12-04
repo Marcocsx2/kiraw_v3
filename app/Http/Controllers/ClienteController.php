@@ -16,11 +16,16 @@ class ClienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $clientes = User::all();
-        return view('Perfiles.index')->with('clientes', $clientes);
+        $name = $request->get('name');
+        $contador = User::all();
+        $clientes = User::orderBy('id', 'DESC')
+            ->where('name', 'LIKE', "%$name%")
+            ->paginate(2);
+            
+        return view('Perfiles.index')->with('clientes', $clientes)->with('contador', $contador);
     }
 
     /**
@@ -53,6 +58,8 @@ class ClienteController extends Controller
     public function show($id)
     {
         //
+        $perfiles = User::find($id);
+        return view('Perfiles.show', compact('perfiles'));
     }
 
     /**

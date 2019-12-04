@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<br>
+<br>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12 col-md-12 mb-3">
@@ -8,7 +11,7 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-3 col-md-4 mb-3 d-none d-md-block">
+        <div class="col-lg-3 col-md-12 mb-3 d-none d-md-block">
             <!-- Card -->
             <div class="card">
                 <!-- Card image -->
@@ -49,10 +52,10 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-md-8 mb-6">
+        <div class="col-lg-6 col-md-12 mb-6">
             
             <!--Carousel Wrapper-->
-            <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel">
+            <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
                 <!--Indicators-->
                 <ol class="carousel-indicators">
                         <li data-target="#carousel-example-2" data-slide-to="$" class="active"></li>
@@ -100,7 +103,6 @@
             </div>
             <!--/.Carousel Wrapper-->
             <br>
-
             @foreach($data as $datas)
 
             <div class="tab-pane fade show active z-depth-2" id="Alimentos" role="tabpanel" aria-labelledby="alimentos-tab">

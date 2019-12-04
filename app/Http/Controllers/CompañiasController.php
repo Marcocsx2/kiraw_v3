@@ -15,9 +15,13 @@ class CompañiasController extends Controller
     public function index(Request $request)
     {
         //
-        $compañias = Proveedores::paginate(2);
+        $pro_nombre = $request->get('pro_nombre');
+        $contador = Proveedores::all();
+        $compañias = Proveedores::orderBy('id', 'DESC')
+                        ->where('pro_nombre', 'LIKE', "%$pro_nombre%")
+                        ->paginate(4);
 
-        return view('Compañia.index')->with( 'compañias', $compañias);
+        return view('Compañia.index')->with( 'compañias', $compañias)->with('contador', $contador);
     }
 
     /**

@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
 
   <div class="row ">
@@ -12,56 +17,70 @@
     <!-- Section description -->
     <p class=" text-muted w-responsive mx-auto mb-5">Averigua mas cosas sobre nuestros proveedores y los productos que ofrecen cada uno de ellos, tambien puedes seguirlos si deseas saber mas de ese proveedor</p>
 
+    <div class="col-lg-6 col-md-5 col-sm-1 alert alert-info ">
+      <p>Tenemos registrados a {{$contador->count()}} compañias</p>
+    </div>
+    <div class="col-lg-2 col-md-1 col-sm-1">
+
+    </div>
+    <div class="position-relative input-group md-form form-sm form-1 pl-0 col-lg-4 col-md-6 col-sm-10">
+        <div class="page-header">
+            <form class="form-inline pull-right" {{route('compañias.index')}} method="GET">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Nombre" name="pro_nombre" id="pro_nombre">   
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-search">Buscar</span>
+                    </button>   
+                </div>
+
+              </form>
+        </div>
+    </div>
+    
   </div>
   <hr>
-
+  <div class="row d-flex justify-content-center"> 
+    <div class="position-relative ">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination pagination-circle pg-blue">
+            {{$compañias->links()}}
+          </ul>
+        </nav>
+      </div>
+  </div>
   @foreach ($compañias as $compañia)
 
   <br>
-  <div class="row ">
+  <div class="row" id="resultados">
 
-    <div class="media position-relative col-lg-12 col-md-12 mb-12">
+    <div class="text-center position-relative col-lg-8 col-md-12 col-sm-12 mb-12">
 
-      <img class="mr-2" style="height: 144px; width: 144px" src="{{$compañia->pro_imagen}}" alt="image">
+        <img class="mr-2" style="height: 144px; width: 144px" src="{{$compañia->pro_imagen}}" alt="image">
 
-      <div class="media-body">
+      <div class="media-body ">
         <h5 class="mt-2">{{$compañia->pro_nombre}}</h5>
         <p>{{$compañia->pro_descripcion}}</p>
       </div>
 
-      <div class="media-body">
-        <button class="btn btn-success"> Conocenos </button> <br>
-        <button class="btn btn-info"> Seguir</button> <br>
-      </div>
     </div>
+      <div class=" media-body align-middle col-lg-4 col-md-12 col-sm-12 mb-12">
+        <button class="btn btn-success btn-block"> Ver Perfil </button> <br>
+        <button class="btn btn-info btn-block"> Seguir</button> <br>
+      </div>
+    
   </div>
   <br>
   <hr>
 
   @endforeach
+  
 
-  {{$compañias->links()}}
+  
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 </div>
+
 
 @stop

@@ -28,9 +28,9 @@ class Proveedores extends Authenticatable
         'pro_contraseña', 'remember_token',
     ];
 
-    public function scopeName($query, $name)
+    public function scopeName($query, $pro_nombre)
     {
-        if($name)
-            return $query->where('name', 'LIKE', "%$name%");
+        if($pro_nombre)
+            return $query->where('pro_nombre', 'LIKE', "%$pro_nombre%");
     }
 }
