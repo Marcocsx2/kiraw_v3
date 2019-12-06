@@ -214,7 +214,7 @@
                                         <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
 
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                            <textarea id="comentario" type="text" maxlength="255" class="form-control @error('comentario') is-invalid @enderror" name="comentario" value="{{ old('comentario') }}" autocomplete="off" autofocus></textarea>
+                                            <textarea id="comentario" type="text" maxlength="255" class="form-control @error('comentario') is-invalid @enderror" name="comentario" value="{{ old('comentario') }}" autocomplete="off" required autofocus></textarea>
 
                                             @error('comentario')
                                             <span class="invalid-feedback" role="alert">
@@ -223,15 +223,16 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-info btn-block"> Comentar</button>
+                                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <button type="submit" class="btn btn-purple btn-block"> Comentar</button> <br>
+                                        <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-amber btn-block"> Ver todos los comentarios</a>
                                     </div>
+                                    
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <br>
             @endforeach

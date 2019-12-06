@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Comentarios;
 use App\Proveedores;
 use App\Publicaciones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PublicacionesController extends Controller
 {
@@ -16,6 +18,7 @@ class PublicacionesController extends Controller
     public function index()
     {
         //
+
         $data = Publicaciones::orderBy('id','DESC')->select('publicaciones.id as pid','proveedores.pro_imagen','proveedores.id','proveedores.pro_nombre',
         'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
                 ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
@@ -55,6 +58,17 @@ class PublicacionesController extends Controller
     public function show($id)
     {
         //
+        $publicaciones = Publicaciones::orderBy('id','DESC')->select('publicaciones.id as pid','proveedores.pro_imagen','proveedores.id','proveedores.pro_nombre',
+        'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
+                ->where('publicaciones.id',$id)
+                ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
+                ->get();
+
+        $comentarios = DB::select("call comentarios_publicacion($id)");
+        return view('Publicaciones.show')-> with('comentarios',$comentarios)->with('publicaciones',$publicaciones);
+        
+
+        
     }
 
     /**

@@ -14,6 +14,9 @@ class ComentariosController extends Controller
     public function create(Request $request, $publi_id)
     {
         //validar la data enviada
+        $this->validate($request, [
+            'comentario' => 'required'
+        ]);
         // Persistir el comentario
 
         $comentarios = new Comentarios();
