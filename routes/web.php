@@ -29,6 +29,8 @@ Route::resource('publicaciones', 'PublicacionesController');
 Route::resource('compañias', 'CompañiasController');
 
 Route::resource('perfiles', 'ClienteController');
+
+Route::resource('productos','ProductosController');
 });
 
 

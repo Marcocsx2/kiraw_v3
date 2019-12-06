@@ -54,6 +54,9 @@ class CompañiasController extends Controller
     public function show($id)
     {
         //
+        $compañias = Proveedores::find($id);
+        // return view('Compañia.show')->with('compañias', $compañias);
+        return $compañias;
     }
 
     /**

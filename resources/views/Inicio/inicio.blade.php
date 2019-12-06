@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="row">
     <div class="col-lg-12 col-md-12 mb-3">
         <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
@@ -15,7 +16,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="First slide">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
@@ -58,7 +59,7 @@
     <div class="row">
         <div class="col-lg-3 col-md-12 mb-3 d-none d-md-block">
             <!-- Card -->
-            <div class="card">
+            <div class="card ">
                 <!-- Card image -->
                 <div class="view overlay aqua-gradient ">
                     <div class="row">
@@ -145,7 +146,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <br>
                                 <br>
                                 <p class="h5 grey-text">
@@ -158,8 +159,8 @@
 
                         <div class="row">
 
-                            <div class="col-12 d-flex justify-content-center">
-                                <button type="button" class="btn btn-orange btn-block">Visualizar Productos de este Proveedor</button>
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+                                <a class="btn btn-orange btn-block" href="{{url('productos',$datas->id)}}"> Visualizar Productos de este Proveedor</a>
                             </div>
                         </div>
 
@@ -167,14 +168,58 @@
 
                     <div class="card-footer text-muted">
                         <div class="row">
-                            <div class="col-4 ">
-                                <i class="far fa-heart red-text"><a href="" class=" d-none d-md-block"> Me encanta</a></i>
+
+                            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 text-center d-flex justify-content-center">
+                                <a href="" class="btn btn-danger btn-block"><i class="far fa-heart"> Me encanta</i></a>
                             </div>
-                            <div class="col-4">
-                                <i class="fas fa-shopping-cart grey-text"><a href="" class=" d-none d-md-block">Añadir al carrito</a></i>
+
+                            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
+                                <hr>
                             </div>
-                            <div class="col-4">
-                                <i class="far fa-comment-dots blue-text"><a href="" class=" d-none d-md-block"> Comentar</a></i>
+
+                            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 d-flex justify-content-center">
+                                <a data-toggle="collapse" href="#collapseComentar" class="btn btn-block btn-light-blue"> <i class="far fa-comment-dots "> Comentar</i></a>
+                            </div>
+
+                        </div>
+                        <!-- <div class="row my-5">
+                            <div class="col-lg-12">
+
+                                <div class="form-group">
+                                    <label for="comentario">Comentario:</label>
+                                    <textarea name="comentario" id="comentario" ></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="suubmit" class="btn btn-primary">Enviar Comentario</button>
+                                </div>
+
+                            </div>
+                        </div> -->
+                    </div>
+    
+                    <div class="card-body collapse" id="collapseComentar">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <form action="" method="POST">
+
+                                    <div class="form-group row">
+                                        <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
+
+                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <textarea id="comentario" type="text" maxlength="255" class="form-control @error('comentario') is-invalid @enderror" name="comentario" value="{{ old('comentario') }}" autocomplete="off" autofocus></textarea>
+
+                                            @error('descripcion')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-info btn-block"> Comentar</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

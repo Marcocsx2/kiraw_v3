@@ -15,7 +15,7 @@
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="First slide">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="http://www.esan.edu.pe/apuntes-empresariales/2016/02/24/Clientes_Proveedores_Principal.jpg" alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
@@ -70,7 +70,7 @@
     </div>
     <div class="position-relative input-group md-form form-sm form-1 pl-0 col-lg-4 col-md-6 col-sm-10">
         <div class="page-header">
-            <form class="form-inline pull-right" {{route('compañias.index')}} method="GET">
+            <form class="form-inline pull-right" action="{{route('compañias.index')}}" method="GET">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Nombre" name="pro_nombre" id="pro_nombre">   
                 </div>
@@ -112,8 +112,8 @@
 
     </div>
       <div class=" media-body align-middle col-lg-4 col-md-12 col-sm-12 mb-12">
-        <button class="btn btn-success btn-block"> Ver Perfil </button> <br>
-        <button class="btn btn-info btn-block"> Seguir</button> <br>
+        <a href="{{url('compañias', $compañia->id)}}" class="btn btn-success btn-block my-2"> Ver Perfil </a> <br>
+        <button class="btn btn-info btn-block my-2"> Seguir</button> <br>
       </div>
     
   </div>

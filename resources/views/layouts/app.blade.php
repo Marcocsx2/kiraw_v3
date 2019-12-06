@@ -113,7 +113,7 @@
             @yield('content')
         </main>
 
-        <footer class="page-footer font-small rgba-green-light ">
+        <footer class="page-footer font-small rgba-green-light my-10">
 
             <!-- Footer Elements -->
             <div class="container">

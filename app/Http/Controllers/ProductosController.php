@@ -2,27 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Productos;
 use App\Proveedores;
-use App\Publicaciones;
+use Illuminate\Foundation\Auth\Proveedor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class PublicacionesController extends Controller
+class ProductosController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $data = Publicaciones::orderBy('id','DESC')->select('proveedores.pro_imagen','proveedores.id','proveedores.pro_nombre',
-        'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
-                ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
-                ->get();
-
-        return view('Inicio.inicio')->with('data', $data);
-                                    
     }
 
     /**
@@ -55,6 +50,11 @@ class PublicacionesController extends Controller
     public function show($id)
     {
         //
+        $consulta = DB::select("call productos_proveedor($id)");
+        $proveedor = Proveedores::all()->where('id', 'LIKE', $id);
+        
+        return view('Productos.show')->with('consulta', $consulta)->with('proveedor',$proveedor);
+        
     }
 
     /**
@@ -66,8 +66,6 @@ class PublicacionesController extends Controller
     public function edit($id)
     {
         //
-        $publicacion = Publicaciones::find($id);
-        return view('Publicaciones.edit')-> with('publicacion',$publicacion);
     }
 
     /**
