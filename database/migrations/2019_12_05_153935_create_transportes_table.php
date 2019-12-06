@@ -14,7 +14,8 @@ class CreateTransportesTable extends Migration
     public function up()
     {
         Schema::create('transportes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->string('tra_nombre');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class PublicacionesController extends Controller
     public function index()
     {
         //
-        $data = Publicaciones::orderBy('id','DESC')->select('proveedores.pro_imagen','proveedores.id','proveedores.pro_nombre',
+        $data = Publicaciones::orderBy('id','DESC')->select('publicaciones.id as pid','proveedores.pro_imagen','proveedores.id','proveedores.pro_nombre',
         'publicaciones.publi_imagen','publicaciones.publi_titulo','publicaciones.publi_descripcion')
                 ->join('proveedores', 'proveedores.id', '=', 'publicaciones.proveedores_id')
                 ->get();

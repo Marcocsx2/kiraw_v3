@@ -47,11 +47,7 @@
             </div>
 
             <div class="row">
-              <div class="col-md-4 col-lg-4 col-sm-4 green   ">
-                <h1>hola
-
-                </h1>
-              </div>
+              
             </div>
 
         </div>

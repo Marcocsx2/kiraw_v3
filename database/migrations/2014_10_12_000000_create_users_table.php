@@ -14,7 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->string('imagen')->default('https://www.macitynet.it/wp-content/uploads/2014/04/facebook-anonimato-secret.jpg'); 
             $table->string('fondo')->default('https://www.gumtree.com/static/1/resources/assets/rwd/images/orphans/a37b37d99e7cef805f354d47.noimage_thumbnail.png');
             $table->string('name')->unique();
