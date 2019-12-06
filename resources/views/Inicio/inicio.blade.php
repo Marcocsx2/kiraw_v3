@@ -2,61 +2,63 @@
 @section('content')
 
 <style>
-    .fondo_carusel{
+    .fondo_carusel {
         background-position: center center;
         background-attachment: fixed;
     }
 </style>
+<!-- <div class="preloader">
+    <img src="URL::asset('assets/Imagenes/loader.gif')" alt="">
 
-<div class="row">
-    <div class="col-lg-12 col-md-12 mb-3">
-        <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
-            <!--Indicators-->
-            <!-- <ol class="carousel-indicators">
+    <div class="row"> -->
+<div class="col-lg-12 col-md-12 mb-3">
+    <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
+        <!--Indicators-->
+        <!-- <ol class="carousel-indicators">
                 <li data-target="#carousel-example-2" data-slide-to="$" class="active"></li>
                 @foreach ($data as $dat)
                 <li data-target="#carousel-example-2" data-slide-to="{{$dat->id}}"></li>
                 @endforeach
             </ol> -->
-            <!--/.Indicators-->
-            <!--Slides-->
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <div class="view ">
-                        <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
-                        <div class="mask rgba-black-light"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">K'iraw</h3>
-                        <p>Tu plataforma favorita</p>
-                    </div>
+        <!--/.Indicators-->
+        <!--Slides-->
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="view ">
+                    <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
+                    <div class="mask rgba-black-light"></div>
                 </div>
-                @foreach ($data as $dat)
-                <div class="carousel-item">
-                    <div class="view">
-                        <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="{{$dat->publi_imagen}}" alt="First slide">
-                        <div class="mask rgba-black-light"></div>
-                    </div>
-                    <div class="carousel-caption">
-                        <h3 class="h3-responsive">{{$dat->publi_titulo}}</h3>
-                        <p>{{$dat->publi_descripcion}}</p>
-                    </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">K'iraw</h3>
+                    <p>Tu plataforma favorita</p>
                 </div>
-                @endforeach
             </div>
-            <!--/.Slides-->
-            <!--Controls-->
-            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            <!--/.Controls-->
+            @foreach ($data as $dat)
+            <div class="carousel-item">
+                <div class="view">
+                    <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="{{$dat->publi_imagen}}" alt="First slide">
+                    <div class="mask rgba-black-light"></div>
+                </div>
+                <div class="carousel-caption">
+                    <h3 class="h3-responsive">{{$dat->publi_titulo}}</h3>
+                    <p>{{$dat->publi_descripcion}}</p>
+                </div>
+            </div>
+            @endforeach
         </div>
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
     </div>
+</div>
 </div>
 <div class="container-fluid">
     <div class="row">
@@ -167,7 +169,7 @@
                         <div class="row">
 
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
-                                <a class="btn btn-orange btn-block" href="{{url('productos',$datas->id)}}"> Visualizar Productos de este Proveedor</a>
+                                <a class="btn btn-orange btn-block" id="btn-one" href="{{url('productos',$datas->id)}}"> Visualizar Productos de este Proveedor</a>
                             </div>
                         </div>
 
@@ -204,12 +206,12 @@
                             </div>
                         </div> -->
                     </div>
-    
+
                     <div class="card-header collapse" id="collapseComentar{{$datas->pid}}">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <form action="{{ route('comentarios', ['post'=> $datas->pid]) }}" method="POST">
-                                @csrf
+                                    @csrf
                                     <div class="form-group row">
                                         <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
 
@@ -227,7 +229,7 @@
                                         <button type="submit" class="btn btn-purple btn-block"> Comentar</button> <br>
                                         <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-amber btn-block"> Ver todos los comentarios</a>
                                     </div>
-                                    
+
                                 </form>
                             </div>
                         </div>
@@ -283,5 +285,5 @@
 <br>
 <br>
 <br>
-
+</div>
 @stop

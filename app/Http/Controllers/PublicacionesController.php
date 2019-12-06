@@ -67,8 +67,6 @@ class PublicacionesController extends Controller
         $comentarios = DB::select("call comentarios_publicacion($id)");
         return view('Publicaciones.show')-> with('comentarios',$comentarios)->with('publicaciones',$publicaciones);
         
-
-        
     }
 
     /**

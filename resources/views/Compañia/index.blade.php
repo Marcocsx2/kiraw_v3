@@ -114,6 +114,7 @@
       <div class=" media-body align-middle col-lg-4 col-md-12 col-sm-12 mb-12">
         <a href="{{url('compañias', $compañia->id)}}" class="btn btn-success btn-block my-2"> Ver Perfil </a> <br>
         <button class="btn btn-info btn-block my-2"> Seguir</button> <br>
+        <a href="{{url('productos',$compañia->id)}}" class="btn btn-blue-grey btn-block my-2"> Ver Productos</a>
       </div>
     
   </div>

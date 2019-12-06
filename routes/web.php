@@ -52,6 +52,12 @@ Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
 Route::post('/publicaciones/{post}/comentario', 'ComentariosController@create')->name('comentarios');
 
 
+Route::get('/carrito', function(){
+    return view('Carrito.index');
+});
 
+Route::get('/confirmo', function(){
+    return view('Carrito.show');
+});
 
 
