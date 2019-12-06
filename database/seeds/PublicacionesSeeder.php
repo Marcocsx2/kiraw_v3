@@ -37,7 +37,7 @@ class PublicacionesSeeder extends Seeder
          DB::table('publicaciones')->insert([
              'publi_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj-dXiDy87TEAo0TgOf87J9NJ0dDT6HW4nEur10j8N-TMyBClT&s',
              'publi_titulo'=> 'Nutrishake Andino',
-             'publi_descripcion'=>'BAtidos hechos de productos naturales',
+             'publi_descripcion'=>'Batidos hechos de productos naturales',
              'proveedores_id' => '4',
          ]);
 
@@ -124,7 +124,7 @@ class PublicacionesSeeder extends Seeder
         // // publicaciones con Souvenirs
 
          DB::table('publicaciones')->insert([
-             'publi_imagen'=>'',
+             'publi_imagen'=>'http://picpanzee.com/media/2018579158040600909_1352669056',
              'publi_titulo'=> 'Quiyara',
              'publi_descripcion'=>'Tus recuerdos lo llevarás da donde vas',
              'proveedores_id' => '7',

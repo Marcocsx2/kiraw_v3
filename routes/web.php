@@ -11,11 +11,14 @@
 |
 */
 
+use App\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
+
     return view('welcome');
+    
 });
 
 Auth::routes();
@@ -45,6 +48,8 @@ Route::group(['prefix'=>'proveedor'], function(){
 });
 
 Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
+
+Route::post('/publicaciones/{post}/comentario', 'ComentariosController@create')->name('comentarios');
 
 
 

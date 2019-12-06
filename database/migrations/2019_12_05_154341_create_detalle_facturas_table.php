@@ -14,7 +14,8 @@ class CreateDetalleFacturasTable extends Migration
     public function up()
     {
         Schema::create('detalle_facturas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->integer('transportes_id')->unsigned();
             $table->foreign('transportes_id')->references('id')->on('transportes');
             $table->integer('users_id')->unsigned();

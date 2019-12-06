@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','imagen', 'fondo','descripcion', 'profesion','nacimiento'
+        '','name', 'email', 'password','imagen', 'fondo','descripcion', 'profesion','nacimiento'
     ];
 
     /**
@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function productos()
+    {
+        return $this->belongsToMany(Productos::class, 'detalle_facturas', 'users_id', 'productos_id');
+    }
 }

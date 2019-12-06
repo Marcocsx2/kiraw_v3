@@ -14,7 +14,8 @@ class CreateComentariosTable extends Migration
     public function up()
     {
         Schema::create('comentarios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
+            $table->increments('id');
             $table->integer('publicacion_id')->unsigned();
 
             $table->integer('users_id')->unsigned();

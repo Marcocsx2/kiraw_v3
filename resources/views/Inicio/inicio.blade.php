@@ -1,6 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
+<style>
+    .fondo_carusel{
+        background-position: center center;
+        background-attachment: fixed;
+    }
+</style>
+
 <div class="row">
     <div class="col-lg-12 col-md-12 mb-3">
         <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
@@ -15,8 +22,8 @@
             <!--Slides-->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
+                    <div class="view ">
+                        <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
@@ -27,7 +34,7 @@
                 @foreach ($data as $dat)
                 <div class="carousel-item">
                     <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$dat->publi_imagen}}" alt="First slide">
+                        <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="{{$dat->publi_imagen}}" alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
@@ -178,7 +185,7 @@
                             </div>
 
                             <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 d-flex justify-content-center">
-                                <a data-toggle="collapse" href="#collapseComentar" class="btn btn-block btn-light-blue"> <i class="far fa-comment-dots "> Comentar</i></a>
+                                <a data-toggle="collapse" href="#collapseComentar{{$datas->pid}}" class="btn btn-block btn-light-blue"> <i class="far fa-comment-dots "> Comentar</i></a>
                             </div>
 
                         </div>
@@ -198,18 +205,18 @@
                         </div> -->
                     </div>
     
-                    <div class="card-body collapse" id="collapseComentar">
+                    <div class="card-header collapse" id="collapseComentar{{$datas->pid}}">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <form action="" method="POST">
-
+                                <form action="{{ route('comentarios', ['post'=> $datas->pid]) }}" method="POST">
+                                @csrf
                                     <div class="form-group row">
                                         <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
 
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                             <textarea id="comentario" type="text" maxlength="255" class="form-control @error('comentario') is-invalid @enderror" name="comentario" value="{{ old('comentario') }}" autocomplete="off" autofocus></textarea>
 
-                                            @error('descripcion')
+                                            @error('comentario')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
