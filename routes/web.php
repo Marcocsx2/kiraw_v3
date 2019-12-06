@@ -49,6 +49,8 @@ Route::group(['prefix'=>'proveedor'], function(){
 
 Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
 
+Route::post('/publicaciones/{post}/comentario', 'ComentariosController@create')->name('comentarios');
+
 
 
 

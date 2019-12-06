@@ -208,8 +208,8 @@
                     <div class="card-header collapse" id="collapseComentar{{$datas->pid}}">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <form action="" method="POST">
-
+                                <form action="{{ route('comentarios', ['post'=> $datas->pid]) }}" method="POST">
+                                @csrf
                                     <div class="form-group row">
                                         <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
 
