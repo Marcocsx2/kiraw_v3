@@ -26,14 +26,14 @@ class PublicacionesSeeder extends Seeder
             'publi_descripcion'=>'Las aceitunas de Gonzalo',
             'proveedores_id' => '2',
         ]);
-        
+
          DB::table('publicaciones')->insert([
              'publi_imagen'=>'https://inkamillenium.com/wp-content/uploads/2015/12/banner_1_web.jpg',
              'publi_titulo'=> 'Inka Millennium ',
              'publi_descripcion'=>'Los mejores productos naturales',
              'proveedores_id' => '3',
          ]);
-        
+
          DB::table('publicaciones')->insert([
              'publi_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj-dXiDy87TEAo0TgOf87J9NJ0dDT6HW4nEur10j8N-TMyBClT&s',
              'publi_titulo'=> 'Nutrishake Andino',
@@ -83,7 +83,7 @@ class PublicacionesSeeder extends Seeder
              'publi_descripcion'=>'diseño único y especial, y al mismo tiempo de la mejor calidad y agradables',
              'proveedores_id' => '5',
          ]);
-        
+
         // // publicaciones con Ceramicas
 
          DB::table('publicaciones')->insert([
@@ -120,11 +120,11 @@ class PublicacionesSeeder extends Seeder
              'publi_descripcion'=>'Galería de arte y diseño con propuestas de artesania contemporánea.',
              'proveedores_id' => '7',
          ]);
-        
+
         // // publicaciones con Souvenirs
 
          DB::table('publicaciones')->insert([
-             'publi_imagen'=>'https://scontent-lhr3-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/61187305_391417034813910_2159165481221819235_n.jpg?_nc_ht=scontent-lhr3-1.cdninstagram.com&_nc_cat=106&oh=f7ac2d543f0dbeaf3450a6016ccd7337&oe=5DF2BF5D&ig_cache_key=MjA1Nzg1MDQ3NDUzNDY4ODgwMg%3D%3D.2',
+             'publi_imagen'=>'',
              'publi_titulo'=> 'Quiyara',
              'publi_descripcion'=>'Tus recuerdos lo llevarás da donde vas',
              'proveedores_id' => '7',
