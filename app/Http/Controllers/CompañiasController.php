@@ -55,9 +55,9 @@ class CompañiasController extends Controller
     public function show($id)
     {
         //
-        $compañias = DB::select("call proveedoresId($id);");
-        //return view('Compañia.show')->with('compañias', $compañias);
-         return $compañias;
+        $compañias = Proveedores::all()->where('id','like',$id);
+         return view('Compañia.show')->with('compañias', $compañias);
+        //return $compañias;
     }
 
     /**
