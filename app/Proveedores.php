@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\Proveedor as Authenticatable;
+use Illuminate\Foundation\Auth\proveedor as Authenticatable;
 
 class Proveedores extends Authenticatable
 {
