@@ -1,16 +1,10 @@
 @extends('layouts.app')
 @section('content')
 
-<style>
-    .fondo_carusel {
-        background-position: center center;
-        background-attachment: fixed;
-    }
-</style>
 <!-- <div class="preloader">
     <img src="URL::asset('assets/Imagenes/loader.gif')" alt="">
-
-    <div class="row"> -->
+-->
+<div class="row"> 
 <div class="col-lg-12 col-md-12 mb-3">
     <div id="carousel-example-2" class="carousel slide carousel-fade z-depth-2" data-ride="carousel1">
         <!--Indicators-->
@@ -22,10 +16,10 @@
             </ol> -->
         <!--/.Indicators-->
         <!--Slides-->
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner"  role="listbox">
             <div class="carousel-item active">
                 <div class="view ">
-                    <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
+                    <img class="d-block w-100" style=" width: 500px; height:500px;" src="https://www.itl.cat/pngfile/big/0-2844_1920x1080-hd-wallpapers-for-windows-unique-hd-wallpapers.jpg" alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -36,7 +30,7 @@
             @foreach ($data as $dat)
             <div class="carousel-item">
                 <div class="view">
-                    <img class="d-block w-100" style=" background-attachment: fixed; background-position: center center;" src="{{$dat->publi_imagen}}" alt="First slide">
+                    <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$dat->publi_imagen}}" alt="First slide">
                     <div class="mask rgba-black-light"></div>
                 </div>
                 <div class="carousel-caption">
@@ -210,7 +204,7 @@
                     <div class="card-header collapse" id="collapseComentar{{$datas->pid}}">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <form action="{{ route('comentarios', ['post'=> $datas->pid]) }}" method="POST">
+                                <form action="{{ route('comentarios', ['post'=> $datas->pid]) }}" id="form_comentario" method="POST">
                                     @csrf
                                     <div class="form-group row">
                                         <label for="comentario" class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-form-label">{{ __('Comentar:') }}</label>
@@ -226,7 +220,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button type="submit" class="btn btn-purple btn-block"> Comentar</button> <br>
+                                        <button type="submit" onclick="loadLog()" class="btn btn-purple btn-block"> Comentar</button> <br>
                                         <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-amber btn-block"> Ver todos los comentarios</a>
                                     </div>
 
@@ -286,4 +280,6 @@
 <br>
 <br>
 </div>
+
+
 @stop
