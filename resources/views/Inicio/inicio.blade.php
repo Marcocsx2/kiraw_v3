@@ -220,7 +220,7 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button type="submit" onclick="loadLog()" class="btn btn-purple btn-block"> Comentar</button> <br>
+                                        <button type="submit" class="btn btn-purple btn-block"> Comentar</button> <br>
                                         <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-amber btn-block"> Ver todos los comentarios</a>
                                     </div>
 
