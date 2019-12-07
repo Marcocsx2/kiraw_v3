@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedores;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CompañiasController extends Controller
 {
@@ -54,7 +55,7 @@ class CompañiasController extends Controller
     public function show($id)
     {
         //
-        $compañias = Proveedores::find($id);
+        $compañias = DB::select("call proveedoresId($id);");
         // return view('Compañia.show')->with('compañias', $compañias);
         return $compañias;
     }

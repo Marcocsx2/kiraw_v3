@@ -12,6 +12,6 @@ class Publicaciones extends Model
 
     public function comentarios()
     {
-        return $this->hasMany(Comentarios::class);
+        return $this->hasMany(Comentarios::class)->orderBy('id','desc');
     }
 }
