@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
 
     return view('welcome');
-    
+
 });
 
 Auth::routes();
@@ -61,5 +61,10 @@ Route::get('/carrito', function(){
 Route::get('/confirmo', function(){
     return view('Carrito.show');
 });
+
+Route::get('/prueba', function(){
+    return view('Carrito.carrito');
+});
+
 
 
