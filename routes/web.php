@@ -68,5 +68,9 @@ Route::get('/prueba', function(){
     return view('Carrito.carrito');
 });
 
+Route::get('/comentar', function(){
+    return view('Publicaciones.show');
+});
+
 
 
