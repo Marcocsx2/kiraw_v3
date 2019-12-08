@@ -15,21 +15,38 @@
                 </div>
 
                 <div class="card-body">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <p><strong>Oops! </strong> Soluciona estos errores: </p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>
+                                {{$error}}
+                            </li>
+                            @endforeach
+                        </ul>
+
+                    </div>
+                    
+                    @else
+
+                    <div class="alert alert-info">
+                        <p><strong>Welcome !!</strong></p>
+
+                    </div>
+
+                    @endif
+
                             <br>
                             <form method="POST" action="{{ url('register') }} "  enctype="multipart/form-data">
                                     @csrf
-                            
                                     <div class="form-group row">
                                         <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre :') }}</label>
                             
                                         <div class="col-md-6">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                            
-                                            @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+
                                         </div>
                                     </div>
 
@@ -39,11 +56,6 @@
                                         <div class="col-md-6">
                                             <input id="imagen" type="file" class=" @error('imagen') is-invalid @enderror" name="imagen" value="{{ old('imagen') }}" autocomplete="" autofocus>
                             
-                                            @error('imagen')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
                                         </div>
                                     </div>
 
@@ -52,12 +64,6 @@
                             
                                         <div class="col-md-6">
                                             <input id="fondo" type="file" class=" @error('fondo') is-invalid @enderror" name="fondo" value="{{ old('fondo') }}" autocomplete="" autofocus>
-                            
-                                            @error('fondo')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
                                         </div>
                                     </div>
                             
@@ -65,13 +71,7 @@
                                             <label for="descripcion" class="col-md-4 col-form-label text-md-right">{{ __('Descripcion :') }}</label>
                             
                                             <div class="col-md-6">
-                                                <textarea id="descripcion" type="text" maxlength="255" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}" required autocomplete="name" autofocus></textarea>
-                            
-                                                @error('descripcion')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <textarea id="descripcion" type="text" maxlength="255" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" required autocomplete="name" autofocus></textarea>
                                         </div>
                                     </div>
                             
@@ -80,12 +80,7 @@
                             
                                             <div class="col-md-6">
                                                 <input id="profesion" type="text" class="form-control @error('profesion') is-invalid @enderror" name="profesion" value="{{ old('profesion') }}" required autocomplete="" autofocus>
-                            
-                                                @error('profesion')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+
                                             </div>
                                     </div>
                             
@@ -94,12 +89,7 @@
                             
                                             <div class="col-md-6">
                                                 <input id="nacimiento" type="date" class="form-control @error('nacimiento') is-invalid @enderror" name="nacimiento" value="{{ old('nacimiento') }}" required autocomplete="" autofocus>
-                            
-                                                @error('nacimiento')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+
                                             </div>
                                     </div>
 
@@ -108,12 +98,7 @@
                                 
                                             <div class="col-md-6">
                                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+
                                             </div>
                                     </div>
                             
@@ -123,11 +108,6 @@
                                         <div class="col-md-6">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                             
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
                                         </div>
                                     </div>
                             

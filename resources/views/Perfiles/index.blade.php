@@ -27,7 +27,7 @@
                 @foreach ($clientes as $clinte)
                 <div class="carousel-item">
                     <div class="view">
-                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="{{$cliente->imagen}}" alt="First slide">
+                        <img class="d-block w-100" style=" width: 500px; height:500px;" src="imagenes/user_fondo/{{$cliente->fondo}}" alt="First slide">
                         <div class="mask rgba-black-light"></div>
                     </div>
                     <div class="carousel-caption">
@@ -105,7 +105,7 @@
 
         <div class="text-center position-relative col-lg-8 col-md-12 col-sm-12 mb-12">
 
-            <img class="mr-2" style="height: 144px; width: 144px" src="{{$cliente->imagen}}" alt="image">
+            <img class="mr-2" style="height: 144px; width: 144px" src="imagenes/user_imagen/{{$cliente->imagen}}" alt="image">
 
             <div class="media-body">
                 <h5 class="mt-2">{{$cliente->name}}</h5>

@@ -77,7 +77,7 @@
                         @auth
                         <li>
                             <a class="nav-link p-0" href="#">
-                                <img src="{{ Auth::user()->imagen }}" class="rounded-circle z-depth-0" style=" width: 50px; height:50px;" alt="avatar image" height="55">
+                                <img src="imagenes/user_imagen/{{ Auth::user()->imagen }}" class="rounded-circle z-depth-0" style=" width: 50px; height:50px;" alt="avatar image" height="55">
                             </a>
                         </li>
 

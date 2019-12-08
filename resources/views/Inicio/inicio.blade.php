@@ -71,7 +71,7 @@
                         <div class="col-lg-6 col-md-6 mb-6 ">
                             <br>
                             <div class="d-flex justify-content-center">
-                                <img class="img-thumbnail z-depth-2 rounded-circle" style=" width: 150px; height:150px;" src="{{Auth::user()->imagen}}" alt="Card image cap">
+                                <img class="img-thumbnail z-depth-2 rounded-circle" style=" width: 150px; height:150px;" src="imagenes/user_imagen/{{Auth::user()->imagen}}" alt="Card image cap">
                             </div>
                             <br>
                         </div>
@@ -170,18 +170,19 @@
                     </div>
 
                     <div class="card-footer text-muted">
-                        <div class="row">
+                        <div class="row d-flex justify-content-center">
 
-                            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 text-center d-flex justify-content-center">
-                                <a href="" class="btn btn-danger btn-block"><i class="far fa-heart"> Me encanta</i></a>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center  " >
+                                <a href="" ><i class="far fa-thumbs-up"></i>Like</a>
                             </div>
 
-                            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center">
-                                <hr>
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center " style="border-left:1px solid #000;height:auto">
+                                <a href="" ><i class="far fa-thumbs-down"></i>Dislike</a>
                             </div>
 
-                            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 d-flex justify-content-center">
-                                <a data-toggle="collapse" href="#collapseComentar{{$datas->pid}}" class="btn btn-block btn-light-blue"> <i class="far fa-comment-dots "> Comentar</i></a>
+
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 d-flex justify-content-center" style="border-left:1px solid #000;height:auto">
+                                <a data-toggle="collapse" href="#collapseComentar{{$datas->pid}}" class=""> <i class="far fa-comment-dots "> Comentar</i></a>
                             </div>
 
                         </div>

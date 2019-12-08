@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Unique;
 
 class RegisterController extends Controller
 {
@@ -38,7 +39,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:proveedor');
+        $this->middleware('guest');
     }
 
     /**
@@ -49,9 +50,11 @@ class RegisterController extends Controller
      */
     protected function validator(Request $request)
     {
-        return Validator::make($request, [
-            'name' => ['required', 'string', 'max:255'],
+        return $request-> validate([
+            'name' => ['required', 'string', 'max:255', 'unique:users'],
+            'imagen' => ['required', 'file'],
             'descripcion' => ['required','string', 'max:255'],
+            'fondo' => ['required', 'file'],
             'profesion' => ['string', 'max:255'],
             'nacimiento' => ['required','string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -68,39 +71,37 @@ class RegisterController extends Controller
     protected function register(Request $request)
     {
 
+        $imagen = $request->file('imagen');
+       $name_imagen = time().$imagen->getClientOriginalName();
+       $imagen->move(public_path().'/imagenes/user_imagen',$name_imagen);
+
+       $fondo = $request->file('fondo');
+       $name_fondo = time().$fondo->getClientOriginalName();
+       $fondo->move(public_path().'/imagenes/user_fondo',$name_fondo);
         
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'descripcion' => $data['descripcion'],
-        //     'profesion' => $data['profesion'],
-        //     'nacimiento' => $data['nacimiento'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
+        // User::create([
+        //     'name' => $request['name'],
+        //     'fondo'=>$name_fondo,
+        //     'imagen'=>$name_imagen,
+        //     'descripcion' => $request['descripcion'],
+        //     'nacimiento' => $request['nacimiento'],
+        //     'profesion' => $request['profesion'],
+        //     'email' => $request['email'],
+        //     'password' => Hash::make($request['password']),
         // ]);
-
-        if($request->hasFile('imagen')){
-            $file_imagen = $request->file('imagen');
-            $name_imagen = time().$file_imagen->getClientOriginalName();
-            $file_imagen->move(public_path().'/Imagen_cliente/', $name_imagen);
-        }
-
-        if($request->hasFile('fondo')){
-            $file_logo = $request->file('fondo');
-            $name_logo = time().$file_logo->getClientOriginalName();
-            $file_logo->move(public_path().'/Logo_cliente/', $name_logo);
-        }
-
+        
         $cliente = new User();
         $cliente->name = $request->input('name');
-        $cliente->fondo = $request->$name_logo;
-        $cliente->imagen = $request->$name_imagen;
+        $cliente->fondo = $name_fondo;
+        $cliente->imagen = $name_imagen;
         $cliente->descripcion = $request->input('descripcion');
+        $cliente->nacimiento = $request->input('nacimiento');
         $cliente->profesion = $request->input('profesion');
         $cliente->email = $request->input('email');
-        $cliente->password = $request->input('password');
+        $cliente->password = bcrypt( $request['password']);
         $cliente->save();
 
-        return 'Saved';
+        return view('auth.login');
 
     }
     

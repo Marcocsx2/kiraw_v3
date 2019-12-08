@@ -60,6 +60,7 @@ class ClienteController extends Controller
         //
         $perfiles = User::find($id);
         return view('Perfiles.show', compact('perfiles'));
+        // return $perfiles;
     }
 
     /**

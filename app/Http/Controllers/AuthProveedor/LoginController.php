@@ -52,7 +52,7 @@ class LoginController extends Controller
             return redirect()->intended(route('Inicio_pro.inicio_pro'));
         }
 
-        return redirect()->back()->withInput($request->only('pro_correo','remenber'));
+        // return redirect()->back()->withInput($request->only('pro_correo','remenber'));
     }
 
 }
