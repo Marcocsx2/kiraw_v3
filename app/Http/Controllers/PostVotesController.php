@@ -33,8 +33,10 @@ class PostVotesController extends Controller
         // $postVote->vote = $vote;
         // $postVote->save();
 
+        $post = $postVote->post;
+
         return response()->json([
-            'vote_total'=> 1
+            'vote_total'=> $post->totalVotes()
         ]);
     }
 }

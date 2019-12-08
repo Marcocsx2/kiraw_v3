@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comentarios;
+use App\PostVote;
 use App\Proveedores;
 use App\Publicaciones;
 use Illuminate\Http\Request;
@@ -103,5 +104,15 @@ class PublicacionesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function totalVotes()
+    {
+        return $this->votes()->sum('vote');
+    }
+
+    public function votes()
+    {
+        return $this->hasMany(PostVote::class);
     }
 }

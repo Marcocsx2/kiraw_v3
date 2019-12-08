@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\PostVote;
 use App\Publicaciones;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -25,6 +26,8 @@ class PostVotesControllerTest extends TestCase
    }
 
 
+
+
    public function it_allows_a_user_to_vote()
    {
        $user = factory(User::class)->create();
@@ -44,6 +47,8 @@ class PostVotesControllerTest extends TestCase
         ]);               
    }
 
+
+
    public function it_returns_vote_total()
    {
        $user = factory(User::class)->create();
@@ -60,6 +65,9 @@ class PostVotesControllerTest extends TestCase
             'vote_total' => 1
         ]);
    }
+
+
+
 
    public function it_updates_vote_if_voted_twice()
    {
@@ -80,6 +88,34 @@ class PostVotesControllerTest extends TestCase
                 'vote'=> -1
 
         ]);               
+   }
+
+
+
+   public function it_calculates_total_votes()
+   {
+       $user = factory(User::class)->create();
+       $user1 = factory(User::class)->create();
+       $user2= factory(User::class)->create();
+       $user3 = factory(User::class)->create();
+       $post = factory(Publicaciones::class)->create();
+
+       $this-> actingAs($user1)
+       -> json('POST', "/publicaciones/{$post->id}/vote", ['vote'=> 1]);
+       
+       $this-> actingAs($user2)
+                        -> json('POST', "/publicaciones/{$post->id}/vote", ['vote'=> -1]);
+
+       $response = $this-> actingAs($user3)
+                        -> json('POST', "/publicaciones/{$post->id}/vote", ['vote'=> -1]);
+
+        $response->assertStatus(200);
+        
+        $response->assertJson([
+            'vote_total' => -1
+        ]);
+
+        $this->assertEquals(3, PostVote::count());
    }
 
 }
