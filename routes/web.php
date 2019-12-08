@@ -34,6 +34,8 @@ Route::resource('compañias', 'CompañiasController');
 Route::resource('perfiles', 'ClienteController');
 
 Route::resource('productos','ProductosController');
+
+Route::post('publicaciones/{post}/vote','PostVotesController@store')->name('vote_post_path');
 });
 
 
