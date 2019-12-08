@@ -244,7 +244,7 @@
     }
 
     .comment-box .comment-name.by-author:after {
-        content: 'autor';
+        content: 'Proveedor';
         background: #03658c;
         color: #FFF;
         font-size: 12px;
@@ -287,7 +287,7 @@
                 <!-- Contenedor del Comentario -->
                 <div class="comment-box">
                     <div class="comment-head">
-                        <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Brad Vizcarra</a></h6>
+                        <h6 class="comment-name by-author">Brad Vizcarra</h6>
                         <span>hace 15 min</span>
                         <i class="fa fa-heart" style="color:#d50000"></i>
                     </div>
@@ -304,7 +304,7 @@
             <!-- Contenedor del Comentario -->
             <div class="comment-box">
                 <div class="comment-head">
-                    <h6 class="comment-name"><a href="http://creaticode.com/blog">Angelica Romero</a></h6>
+                    <h6 class="comment-name">Angelica Romero</h6>
                     <span>hace 12 min</span>
                     <i class="fa fa-heart" style="color:#d50000"></i>
                 </div>
@@ -320,7 +320,7 @@
             <!-- Contenedor del Comentario -->
             <div class="comment-box">
                 <div class="comment-head">
-                    <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Brad Vizcarra</a></h6>
+                    <h6 class="comment-name by-author">Brad Vizcarra</h6>
                     <span>hace 7 minutos</span>
                     <i class="fa fa-heart" style="color:#d50000"></i>
                 </div>
@@ -339,7 +339,7 @@
                 <!-- Contenedor del Comentario -->
                 <div class="comment-box">
                     <div class="comment-head">
-                        <h6 class="comment-name"><a href="http://creaticode.com/blog">Angelica Romero</a></h6>
+                        <h6 class="comment-name">Angelica Romero</h6>
                         <span>hace 5 minutos</span>
                         <i class="fa fa-heart" style="color:#d50000"></i>
                     </div>
