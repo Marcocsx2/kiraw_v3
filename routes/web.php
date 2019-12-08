@@ -36,6 +36,9 @@ Route::resource('perfiles', 'ClienteController');
 Route::resource('productos','ProductosController');
 
 Route::post('publicaciones/{post}/vote','PostVotesController@store')->name('vote_post_path');
+
+Route::get('/carrito','CarritoController@index')->name('carrito');
+
 });
 
 
@@ -47,6 +50,7 @@ Route::group(['prefix'=>'proveedor'], function(){
     Route::get('/register', 'AuthProveedor\RegisterController@showLoginForm')->name('proveedor.register');
     Route::post('/register','AuthProveedor\RegisterController@register')->name('proveedor.register.submit');
     Route::post('/login', 'AuthProveedor\LoginController@login')->name('proveedor.login.submit');
+    
 });
 
 Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
@@ -56,9 +60,6 @@ Route::get('compañias/{id}', 'CompañiasController@show')->name('compañias.sho
 Route::post('/publicaciones/{post}/comentario', 'ComentariosController@create')->name('comentarios');
 
 
-Route::get('/carrito', function(){
-    return view('Carrito.index');
-});
 
 Route::get('/confirmo', function(){
     return view('Carrito.show');
@@ -68,9 +69,6 @@ Route::get('/prueba', function(){
     return view('Carrito.carrito');
 });
 
-Route::get('/comentar', function(){
-    return view('Publicaciones.show');
-});
 
 
 

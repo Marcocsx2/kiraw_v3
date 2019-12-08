@@ -35,7 +35,7 @@ class PostTest extends TestCase
         $total = $post->totalVotes();
 
 
-        $this->assertEquals($total,3)
+        $this->assertEquals($total,3);
 
     }
 

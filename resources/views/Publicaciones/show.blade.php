@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('content')
 <style>
     * {
         margin: 0;
@@ -20,6 +21,14 @@
     body {
         font-family: 'Roboto', Arial, Helvetica, Sans-serif, Verdana;
         background: #dee1e3;
+    }
+
+    .fixed-top {
+        color: #283035;
+    }
+
+    .top-nav-collapse {
+        text-decoration-color: white !important;
     }
 
     /** ====================
@@ -244,7 +253,7 @@
     }
 
     .comment-box .comment-name.by-author:after {
-        content: 'Proveedor';
+        content: 'Cliente';
         background: #03658c;
         color: #FFF;
         font-size: 12px;
@@ -275,80 +284,116 @@
 </style>
 
 <!-- Contenedor Principal -->
-
-<div class="comments-container ">
-    <h1 style="color:#303f9f;background-color:#e53935;box-shadow: 5px 5px 10px #999 ">Comentarios</h1>
-
-    <ul id="comments-list" class="comments-list">
-        <li>
-            <div class="comment-main-level">
-                <!-- Avatar -->
-                <div class="comment-avatar"><img src="{{ URL::asset('assets/Imagenes/perfiles/chico_1.jpg') }}" alt=""></div>
-                <!-- Contenedor del Comentario -->
-                <div class="comment-box">
-                    <div class="comment-head">
-                        <h6 class="comment-name by-author">Brad Vizcarra</h6>
-                        <span>hace 15 min</span>
-                        <i class="fa fa-heart" style="color:#d50000"></i>
-                    </div>
-                    <div class="comment-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                    </div>
-                </div>
-            </div>
-            <!-- Respuestas de los comentarios -->
-
-        <li>
-            <!-- Avatar -->
-            <div class="comment-avatar"><img src="{{ URL::asset('assets/Imagenes/perfiles/chica_1.jpg') }}" alt=""></div>
-            <!-- Contenedor del Comentario -->
-            <div class="comment-box">
-                <div class="comment-head">
-                    <h6 class="comment-name">Angelica Romero</h6>
-                    <span>hace 12 min</span>
-                    <i class="fa fa-heart" style="color:#d50000"></i>
-                </div>
-                <div class="comment-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                </div>
-            </div>
-        </li>
-
-        <li>
-            <!-- Avatar -->
-            <div class="comment-avatar"><img src="{{ URL::asset('assets/Imagenes/perfiles/chico_1.jpg') }}" alt=""></div>
-            <!-- Contenedor del Comentario -->
-            <div class="comment-box">
-                <div class="comment-head">
-                    <h6 class="comment-name by-author">Brad Vizcarra</h6>
-                    <span>hace 7 minutos</span>
-                    <i class="fa fa-heart" style="color:#d50000"></i>
-                </div>
-                <div class="comment-content">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                </div>
-            </div>
-        </li>
-
-        </li>
-
-        <li>
-            <div class="comment-main-level">
-                <!-- Avatar -->
-                <div class="comment-avatar"><img src="{{ URL::asset('assets/Imagenes/perfiles/chica_1.jpg') }}" alt=""></div>
-                <!-- Contenedor del Comentario -->
-                <div class="comment-box">
-                    <div class="comment-head">
-                        <h6 class="comment-name">Angelica Romero</h6>
-                        <span>hace 5 minutos</span>
-                        <i class="fa fa-heart" style="color:#d50000"></i>
-                    </div>
-                    <div class="comment-content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
+<div class="success-color">
+    <br><br>
+    <br><br>
 </div>
+<div class="container">
+    <div class="row d-flex justify-content-center my-4">
+        <div class="col-lg-6 col-md-6 mb-6">
+            @foreach($publicaciones as $publicacion)
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="mr-2">
+                                <img src="{{$publicacion->pro_imagen}}" class="rounded-circle" alt="avatar image" height="55">
+                            </div>
+                            <div class="ml-2">
+                                <div class="h5 m-0">{{$publicacion->pro_nombre}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+
+                <div class="card-body">
+
+
+                    <div class="p row text-relative">
+                        <div class="h5 col-7  align-middle h3">
+                            {{$publicacion->publi_titulo}}
+                        </div>
+                        <br>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                            <div class="view overlay">
+
+                                <img class="card-img-top z-depth-1" src="{{$publicacion->publi_imagen}}" alt="Card image cap">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <br>
+                            <br>
+                            <p class="h5 grey-text">
+                                {{$publicacion->publi_descripcion}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+                            <a class="btn btn-orange btn-block" id="btn-one" href="{{url('productos',$publicacion->id)}}"> Visualizar Productos de este Proveedor</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+
+
+
+        <div class="col-lg-6 col-md-6 mb-6">
+            <div class="comments-container">
+
+                <ul id="comments-list" class="comments-list">
+                    @foreach($comentarios as $comentario)
+                    <li>
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img src="{{asset('imagenes').'/user_imagen/'.$comentario->imagen }}" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name by-author">{{$comentario->name}}</h6>
+                                    <span>{{$comentario->created_at}}</span>
+                                    <i class="fa fa-heart" style="color:#d50000"></i>
+                                </div>
+                                <div class="comment-content">
+                                    {{$comentario->comentario}}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Respuestas de los comentarios -->
+                    </li>
+                    @endforeach
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    @stop

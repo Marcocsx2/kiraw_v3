@@ -65,7 +65,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mi carrito
+                            <a class="nav-link" href="{{ route('carrito') }}">Mi carrito
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
                         </li>
