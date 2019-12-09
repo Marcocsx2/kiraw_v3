@@ -20,8 +20,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '2010-12-11',
             'pro_telefono'=>'965547852',
             'pro_trabajadores'=>'1245',
-            'pro_correo'=>'cafe_lima@gmail.com',
-            'pro_contraseña' => bcrypt('coffe123'), 
+            'email'=>'cafe_lima@gmail.com',
+            'password' => bcrypt('coffe123'),
         ]);
         DB::table('proveedores')->insert([
             'pro_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR8XxmKDG2xCl32fdYVZX-ouFxF634rVnXIH51HtDQy9KBIny4J',
@@ -30,8 +30,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '2000-07-05',
             'pro_telefono'=>'988548954',
             'pro_trabajadores'=>'1457',
-            'pro_correo'=>'el_olivar@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'el_olivar@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
         DB::table('proveedores')->insert([
             'pro_imagen'=>'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_l66I3rXNguDN5OU7r0ZTUzHW6lpyoVp2aW3HUBBjzuRmXmhg',
@@ -40,8 +40,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '2011-12-30',
             'pro_telefono'=>'987548625',
             'pro_trabajadores'=>'7894',
-            'pro_correo'=>'green_vegan_shop@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'green_vegan_shop@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
         DB::table('proveedores')->insert([
@@ -51,8 +51,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '1988-08-14',
             'pro_telefono'=>'987568451',
             'pro_trabajadores'=>'2457',
-            'pro_correo'=>'maca_powder@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'maca_powder@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
         //Vestimentas
@@ -63,8 +63,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '1998-05-25',
             'pro_telefono'=>'963587895',
             'pro_trabajadores'=>'875',
-            'pro_correo'=>'poncho_chalan@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'poncho_chalan@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
         DB::table('proveedores')->insert([
@@ -74,8 +74,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '1998-05-25',
             'pro_telefono'=>'963587895',
             'pro_trabajadores'=>'875',
-            'pro_correo'=>'kalitex@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'kalitex@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
         //Ceramicas
@@ -89,8 +89,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '2016-05-24',
             'pro_telefono'=>'985632547',
             'pro_trabajadores'=>'7458',
-            'pro_correo'=>'la_festa@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'la_festa@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
 
@@ -102,8 +102,8 @@ class ProveedoresSeeder extends Seeder
             'pro_fundacion' => '1998-05-04',
             'pro_telefono'=>'968659632',
             'pro_trabajadores'=>'4257',
-            'pro_correo'=>'lemon_pharma@gmail.com',
-            'pro_contraseña' => bcrypt('123456789'), 
+            'email'=>'lemon_pharma@gmail.com',
+            'password' => bcrypt('123456789'),
         ]);
 
 
