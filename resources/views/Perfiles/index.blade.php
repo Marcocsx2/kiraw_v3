@@ -114,8 +114,6 @@
         </div>
         <div class="media-body align-middle col-lg-4 col-md-12 col-sm-12 mb-12">
             <a href="{{url('perfiles', $cliente->id)}}" class="btn btn-success btn-block"> Ver Perfil </a> <br>
-            <br>
-            <a href="" class="btn btn-info btn-block"> Seguir</a> <br>
         </div>
 
     </div>

@@ -57,22 +57,6 @@
         <div class="container-fluid">
           <div class=" d-flex justify-content-center">
 
-            <div class="card d-none d-md-block col-lg-3 col-md-3 z-depth-2 mr-3 my-2">
-
-              <hr class="my-2">
-              <h1>
-                <span class="d-flex justify-content-center badge blue lighten-2">Seguidores</span>
-                <h2 class="text-center">125</h2>
-              </h1>
-
-
-              <hr class="my-2">
-              <h1>
-                <span class="d-flex justify-content-center badge blue lighten-2">Seguidos</span>
-                <h2 class="text-center">485</h2>
-              </h1>
-
-            </div>
 
             <div class="card col-lg-4 col-md-4 my-2" style="box-shadow: 5px 5px 10px #999">
               <div class="card-body">
@@ -107,7 +91,7 @@
 
                 <!-- Card image -->
                 <div class="view overlay ">
-                  <img class="card-img-top" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="Card image cap">
+                  <img class="card-img-top" class="img-responsive" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="Card image cap">
                   <a href="#!">
                     <div class="mask rgba-white-slight"></div>
                   </a>

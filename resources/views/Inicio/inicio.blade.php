@@ -85,15 +85,15 @@
 
                     <hr class="my-2">
                     <h1>
-                        <span class="d-flex justify-content-center badge blue lighten-2">Seguidores</span>
-                        <h2 class="text-center">125</h2>
+                        <span class="d-flex justify-content-center badge blue lighten-2">Correo</span>
+                        <h4 class="text-center">{{Auth::user()->email}}</h4>
                     </h1>
 
 
                     <hr class="my-2">
                     <h1>
-                        <span class="d-flex justify-content-center badge blue lighten-2">Seguidos</span>
-                        <h2 class="text-center">485</h2>
+                        <span class="d-flex justify-content-center badge blue lighten-2">Profesión</span>
+                        <h2 class="text-center">{{Auth::user()->profesion}}</h2>
                     </h1>
 
                 </div>
@@ -172,16 +172,7 @@
                     <div class="card-footer text-muted">
                         <div class="row d-flex justify-content-center">
 
-                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center  " >
-                                <a href="" ><i class="far fa-thumbs-up"></i>Like</a>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 text-center " style="border-left:1px solid #000;height:auto">
-                                <a href="" ><i class="far fa-thumbs-down"></i>Dislike</a>
-                            </div>
-
-
-                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 d-flex justify-content-center" style="border-left:1px solid #000;height:auto">
+                            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center" >
                                 <a data-toggle="collapse" href="#collapseComentar{{$datas->pid}}" class=""> <i class="far fa-comment-dots "> Comentar</i></a>
                             </div>
 
@@ -221,8 +212,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                        <button type="submit" class="btn btn-purple btn-block"> Comentar</button> <br>
-                                        <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-amber btn-block"> Ver todos los comentarios</a>
+                                        <button type="submit" class="btn btn-info btn-block"> Comentar</button> <br>
+                                        <a href="{{route('publicaciones.show', $datas->pid)}}" class="btn btn-danger btn-block"> Ver todos los comentarios</a>
                                     </div>
 
                                 </form>

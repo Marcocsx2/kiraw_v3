@@ -4,8 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Request;
-use Response;
+use Illuminate\Support\Facades\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Auth\AuthenticationException;
 
 class Handler extends ExceptionHandler

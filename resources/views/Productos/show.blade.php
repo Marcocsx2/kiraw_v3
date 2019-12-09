@@ -69,7 +69,7 @@
                 <div class="card-footer">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-2">
-                            <a href="#!" class="btn btn-orange btn-block">Añadir al Carrito</a>
+                            <a href="{{route( 'productos.addToCart', $consultas->id)}}" class="btn btn-orange btn-block">Añadir al Carrito</a>
                         </div>
 
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 my-2">

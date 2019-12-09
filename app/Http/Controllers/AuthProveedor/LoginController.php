@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AuthProveedor;
 
 use App\Http\Controllers\Controller;
+use App\Proveedores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,21 +42,29 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
+
+        $proveedores = Proveedores::all();
         
         $credenciales = $request->only('email', 'password');
 
         if (Auth::guard('proveedor')->attempt($credenciales)) {
-            return redirect()->route('proveedor.home');
+            return redirect()->route('proveedor.home')->with('proveedores' , $proveedores);
         }
         // return redirect()->back();
-        return 'error';
 
-        // return redirect()->back()->withInput($request->only('pro_correo','remenber'));
+        return redirect()->back()->withInput($request->only('email','remenber'));
+                        
     }
 
     public function getProfile() 
     {
         return view('Inicio.inicio');
+    }
+
+    public function getLogout()
+    {
+        Auth::guard('proveedor')->logout();
+        return redirect()->back();
     }
 
 }

@@ -77,10 +77,31 @@
                   </p>
                   <hr>
                   <p><strong>Correo</strong>: <br>
-                    <h8 style='color:#9e9e9e'>{{$compañia->pro_correo}}</h8>
+                    <h8 style='color:#9e9e9e'>{{$compañia->email}}</h8>
                   </p>
                 </div>
               </div>
+            </div>
+            <div class="col-lg-4 col-md-4 d-none d-md-block mb-3 my-2">
+              <!-- Card -->
+              <div class="card z-depth-2">
+
+                <!-- Card image -->
+                <div class="view overlay ">
+                  <img class="card-img-top" class="img-responsive" src="{{ URL::asset('assets/Imagenes/diseño_prototipos/logo.png') }}" alt="Card image cap">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body card-header">
+
+                  <h2 class="text-center">K'iraw</h2>
+
+                </div>
+              </div>
+              <!-- Card -->
             </div>
           </div>
         </div>

@@ -65,8 +65,9 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('carrito') }}">Mi carrito
+                            <a class="nav-link" href="{{ route('productos.shoppingCart') }}">Mi carrito
                                 <i class="fas fa-shopping-cart"></i>
+                                <span class="badge">{{session()->has('cart') ? session()->get('cart')->totalQty: '' }}</span>
                             </a>
                         </li>
 
