@@ -69,8 +69,8 @@ class RegisterController extends Controller
             'pro_trabajadores' => ['required'],
             'pro_descripcion' => ['string', 'max:255'],
             'pro_fundacion' => ['required','date'],
-            'pro_correo' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'pro_contraseña' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
         // return Validator::make($request, [
@@ -102,8 +102,8 @@ class RegisterController extends Controller
                 'pro_trabajadores' => $request['pro_trabajadores'],
                 'pro_descripcion' => $request['pro_descripcion'],
                 'pro_fundacion' => $request['pro_fundacion'],
-                'pro_correo' => $request['pro_correo'],
-                'pro_contraseña' => Hash::make($request['pro_contraseña']),
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
         ]);
     }
 

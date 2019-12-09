@@ -6,9 +6,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class="container">
 <div class="row">
     <div class="panel-body col-md-12 col-md-offset-2 card">
@@ -26,12 +23,10 @@
                     <th>Precio</th>
                     <th>Cantidad</th>
                     <th>Sub-Total</th>
-                    <th></th>
+                    <th>Elimiar</th>
                 </thead>
                 <tbody>
-
                     <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -47,10 +42,7 @@
                                 </button>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td colspan="8">No hay registro </td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -69,5 +61,13 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 @stop

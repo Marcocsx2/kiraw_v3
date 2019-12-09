@@ -38,21 +38,24 @@ class LoginController extends Controller
     public function Login(Request $request)
     {
         $this->validate($request, [
-            'pro_correo' => 'required|email',
-            'pro_contraseña' => 'required|min:6'
+            'email' => 'required|email',
+            'password' => 'required|min:6'
         ]);
+        
+        $credenciales = $request->only('email', 'password');
 
-        $credential = [
-            'pro_correo'     => $request->pro_correo,
-            'pro_contraseña' => $request->pro_contraseña,
-
-        ];
-
-        if (Auth::guard('proveedor')->attempt($credential, $request->member)){
-            return redirect()->intended(route('Inicio_pro.inicio_pro'));
+        if (Auth::guard('proveedor')->attempt($credenciales)) {
+            return redirect()->route('proveedor.home');
         }
+        // return redirect()->back();
+        return 'error';
 
         // return redirect()->back()->withInput($request->only('pro_correo','remenber'));
+    }
+
+    public function getProfile() 
+    {
+        return view('Inicio.inicio');
     }
 
 }

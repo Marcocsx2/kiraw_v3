@@ -44,16 +44,15 @@ Route::get('/carrito','CarritoController@index')->name('carrito');
 
 
 //Route::post('verificar', 'ProveedoresController@LoginProveedor');
-
-Route::group(['prefix'=>'proveedor'], function(){
-    Route::get('/login', 'AuthProveedor\LoginController@showLoginForm')->name('proveedor.login');
-    Route::get('/register', 'AuthProveedor\RegisterController@showLoginForm')->name('proveedor.register');
-    Route::post('/register','AuthProveedor\RegisterController@register')->name('proveedor.register.submit');
-    Route::post('/login', 'AuthProveedor\LoginController@login')->name('proveedor.login.submit');
     
-});
+Route::post('proveedor/register','AuthProveedor\RegisterController@register')->name('proveedor.register.submit');
+Route::get('proveedor/register', 'AuthProveedor\RegisterController@showLoginForm')->name('proveedor.register');
+Route::post('proveedor/login', 'AuthProveedor\LoginController@login')->name('proveedor.login.submit');
+Route::get('proveedor/login', 'AuthProveedor\LoginController@showLoginForm')->name('proveedor.login');
+Route::get('proveedor/publicaciones','AuthProveedor\LoginController@getProfile')->name('proveedor.home');
 
-Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
+
+// Route::get('proveedor', 'ProveedoresController@index')->name('proveedor.home');
 
 Route::get('compañias/{id}', 'CompañiasController@show')->name('compañias.show');
 

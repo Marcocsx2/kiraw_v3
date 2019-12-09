@@ -75,12 +75,9 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Ingresar') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Olvidaste tu contraseña?') }}
+                                <a href="{{route('proveedor.login')}}">
+                                    Iniciar session como proveedor
                                 </a>
-                                @endif
                             </div>
                         </div>
                     </form>

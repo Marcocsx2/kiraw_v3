@@ -16,7 +16,7 @@ class Proveedores extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'pro_nombre','pro_descripcion','pro_fundacion','pro_telefono','pro_trabajadores', 'pro_correo', 'pro_contraseña','pro_imagen',
+        'pro_nombre','pro_descripcion','pro_fundacion','pro_telefono','pro_trabajadores', 'email', 'password','pro_imagen',
     ];
 
     /**

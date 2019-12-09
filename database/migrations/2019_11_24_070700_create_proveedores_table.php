@@ -22,8 +22,8 @@ class CreateProveedoresTable extends Migration
             $table->date('pro_fundacion');
             $table->string('pro_telefono',9);
             $table->integer('pro_trabajadores');
-            $table->string('pro_correo')->unique();
-            $table->string('pro_contraseña');
+            $table->string('email')->unique();
+            $table->string('password');
 
             $table->timestamps();
         });
