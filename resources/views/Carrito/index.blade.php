@@ -25,7 +25,7 @@
                         <th>Precio en $</th>
                         <th>Cantidad</th>
                         <th>Sub-Total</th>
-                        <th>Elimiar</th>
+                        <th>Eliminar</th>
                     </thead>
                     <tbody>
                         @foreach ($products as $product)
@@ -36,9 +36,9 @@
                             <td><input type="number" class="form-control" disabled value="{{$product['qty']}}"></td>
                             <td><input type="number" class="form-control" disabled value="{{$product['item']['prod_precio']*$product['qty']}}"></td>
                             <td>
-                                <form method="post">
+                                <form method="">
                                     @csrf
-                                    <input type="hidden" value="DELETE">
+                                    <input type="hidden" value="">
                                     <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash">
                                             <i class="fas fa-trash"></i>
                                         </span>
